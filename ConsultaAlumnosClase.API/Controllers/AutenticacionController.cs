@@ -1,4 +1,5 @@
 ﻿using ConsultaAlumnosClase.API.Entities;
+using ConsultaAlumnosClase.API.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -19,8 +20,8 @@ namespace ConsultaAlumnos.API.Controllers
         {
             public string? UserName { get; set; }
             public string? Password { get; set; }
-public string? TipoUsuario { get; set; }
-}
+            public string? TipoUsuario { get; set; }
+            }
 
         public AutenticacionController(IConfiguration config, IAutenticacionService autenticacionService)
         {

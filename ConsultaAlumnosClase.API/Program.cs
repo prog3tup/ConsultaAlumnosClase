@@ -1,3 +1,7 @@
+using ConsultaAlumnosClase.API.Data;
+using ConsultaAlumnosClase.API.DBContext;
+using ConsultaAlumnosClase.API.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -45,6 +49,14 @@ builder.Services.AddAuthentication("Bearer") //"Bearer" es el tipo de auntentica
         };
     }
 );
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IRepository, Repository>();
+
+builder.Services.AddScoped<IAutenticacionService, AutenticacionService>();
+
+builder.Services.AddDbContext<Context>(dbContextOptions => dbContextOptions.UseSqlite(
+    builder.Configuration["ConnectionStrings:ConsultaAlumnosDBConnectionString"]));
+
 
 var app = builder.Build();
 

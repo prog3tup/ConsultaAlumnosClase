@@ -6,5 +6,7 @@
         public string Nombre { get; set; }
         public string Cuatrimestre { get; set; }
 
+        public ICollection<Alumno> Alumnos { get; set; }
+        public ICollection<Profesor> Profesores { get; set; }
     }
 }
