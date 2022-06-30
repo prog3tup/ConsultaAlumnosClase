@@ -51,8 +51,11 @@ builder.Services.AddAuthentication("Bearer") //"Bearer" es el tipo de auntentica
 );
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+
 
 builder.Services.AddScoped<IAutenticacionService, AutenticacionService>();
+builder.Services.AddScoped<IStudentService, StudentService>();
 
 builder.Services.AddDbContext<Context>(dbContextOptions => dbContextOptions.UseSqlite(
     builder.Configuration["ConnectionStrings:ConsultaAlumnosDBConnectionString"]));

@@ -2,7 +2,7 @@
 
 namespace ConsultaAlumnosClase.API.Entities
 {
-    public class Consulta
+    public class Question
     {
         public int Id { get; set; }
         public string Titulo { get; set; }
@@ -14,7 +14,7 @@ namespace ConsultaAlumnosClase.API.Entities
         public Alumno Alumno { get; set; }
         //public int IdAlumnoCreador { get; set; }
         //[ForeignKey("IdMateria")]
-        public Materia Materia { get; set; }
+        public Subject Materia { get; set; }
         //public int IdMateria { get; set; }
         //public ICollection<Alumno> Seguidores { get; set; } = new List<Alumno>();
         public ICollection<Respuesta> Respuestas { get; set; } = new List<Respuesta>();

@@ -2,7 +2,7 @@
 {
     public class Profesor : Usuario
     {
-        public ICollection<Materia> MateriasAsignadas { get; set; } = new List<Materia>();
-        public ICollection<Consulta> ConsultasAsignadas { get; set; } = new List<Consulta>();
+        public ICollection<Subject> MateriasAsignadas { get; set; } = new List<Subject>();
+        public ICollection<Question> ConsultasAsignadas { get; set; } = new List<Question>();
     }
 }

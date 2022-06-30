@@ -9,7 +9,7 @@
         public Usuario Creador { get; set; }
         //public int IdCreador { get; set; }
         //[ForeignKey("IdConsulta")]
-        public Consulta Consulta { get; set; }
+        public Question Consulta { get; set; }
         //public int IdConsulta { get; set; }
     }
 }

@@ -8,8 +8,8 @@ namespace ConsultaAlumnosClase.API.DBContext
     {
         public DbSet<Alumno> Alumnos { get; set; }
         public DbSet<Profesor> Profesores { get; set; }
-        public DbSet<Materia> Materias { get; set; }
-        public DbSet<Consulta> Consultas { get; set; }
+        public DbSet<Subject> Materias { get; set; }
+        public DbSet<Question> Consultas { get; set; }
         public DbSet<Respuesta> Respuestas { get; set; }
 
         public Context(DbContextOptions<Context> options) : base(options) //Acá estamos llamando al constructor de DbContext que es el que acepta las opciones
@@ -68,21 +68,21 @@ namespace ConsultaAlumnosClase.API.DBContext
                     Id = 5
                 });
 
-            modelBuilder.Entity<Materia>().HasData(
-                new Materia
+            modelBuilder.Entity<Subject>().HasData(
+                new Subject
                 {
                     Id = 1,
                     Nombre = "Programación 3",
                     Cuatrimestre = "Tercer"
                 },
-                new Materia
+                new Subject
                 {
                     Id = 2,
                     Nombre = "Programación 4",
                     Cuatrimestre = "Tercer"
                 });
 
-            modelBuilder.Entity<Materia>()
+            modelBuilder.Entity<Subject>()
                 .HasMany(x => x.Alumnos)
                 .WithMany(x => x.MateriasEnCurso)
                 .UsingEntity(j => j.
@@ -94,7 +94,7 @@ namespace ConsultaAlumnosClase.API.DBContext
                         }
                     ));
 
-            modelBuilder.Entity<Materia>()
+            modelBuilder.Entity<Subject>()
                 .HasMany(x => x.Profesores)
                 .WithMany(x => x.MateriasAsignadas)
                 .UsingEntity(j => j
